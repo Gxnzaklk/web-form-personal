@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Clase gratuita con Fede</title>
+  <title>Evaluación inicial personalizada | Fede Coach</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <form id="formFede">
-    <h2>Sesión personalizada sin costo</h2>
-    <p>¿Querés mejorar tu cuerpo, rendimiento o salud? Esta clase gratuita te va a ayudar a evaluar dónde estás y hacia dónde podés ir. Fede te va a guiar con una propuesta adaptada a tu nivel y objetivo. Completá los datos y coordiná el lugar.</p>
+    <h2>Evaluación inicial personalizada sin costo</h2>
+    <p>Esta sesión es el primer paso para transformar tu cuerpo y bienestar. A través de una evaluación personalizada, Fede va a ayudarte a identificar tu punto de partida, entender tus objetivos y proponerte un plan adaptado a tu nivel y disponibilidad. Completá tus datos y coordinamos tu turno.</p>
 
     <label for="nombre">Nombre completo *</label>
     <input type="text" id="nombre" name="nombre" required />
@@ -22,12 +22,12 @@
       <option value="">Seleccioná una opción</option>
       <option>Reducir grasa corporal</option>
       <option>Aumentar masa muscular</option>
-      <option>Reacomodar el cuerpo (recomposición corporal)</option>
+      <option>Recomposición corporal</option>
       <option>Mejorar salud, energía o bienestar general</option>
     </select>
 
-    <label for="turno">Reservá tu clase (día + hora):</label>
-    <select id="turno" name="turno">
+    <label for="turno">Elegí tu día y horario preferido *</label>
+    <select id="turno" name="turno" required>
       <option value="">Seleccioná un turno</option>
       <option>Lunes 16:00</option>
       <option>Lunes 18:30</option>
@@ -45,7 +45,7 @@
     <label for="contacto">Contacto (WhatsApp o Instagram) *</label>
     <input type="text" id="contacto" name="contacto" required />
 
-    <button type="submit">Enviar</button>
+    <button type="submit">Agendar sesión</button>
   </form>
 
   <script>
@@ -70,10 +70,10 @@
         });
 
         const resData = await response.json();
-        alert(resData.mensaje || "¡Formulario enviado!");
+        alert(resData.mensaje || "¡Formulario enviado con éxito!");
         if (response.ok) form.reset();
       } catch (error) {
-        alert("Error de conexión. Intentá más tarde o hablá con Fede.");
+        alert("No se pudo enviar. Reintentá más tarde o escribile a Fede.");
         console.error("Error:", error);
       }
     });
