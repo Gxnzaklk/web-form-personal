@@ -48,35 +48,6 @@
     <button type="submit">Agendar sesión</button>
   </form>
 
-  <script>
-    document.getElementById('formFede').addEventListener('submit', async function (e) {
-      e.preventDefault();
-
-      const form = e.target;
-      const data = {
-        nombre: form.nombre.value.trim(),
-        edad: form.edad.value.trim(),
-        objetivo: form.objetivo.value,
-        turno: form.turno.value,
-        lesion: form.lesion?.value || "No especificado",
-        contacto: form.contacto.value.trim()
-      };
-
-      try {
-        const response = await fetch("https://gonzalo420.app.n8n.cloud/webhook/formulario-entrenamiento", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data)
-        });
-
-        const resData = await response.json();
-        alert(resData.mensaje || "¡Formulario enviado con éxito!");
-        if (response.ok) form.reset();
-      } catch (error) {
-        alert("No se pudo enviar. Reintentá más tarde o escribile a Fede.");
-        console.error("Error:", error);
-      }
-    });
-  </script>
+   <script src="script.js"></script>
 </body>
 </html>
