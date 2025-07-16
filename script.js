@@ -13,7 +13,7 @@
     };
 
     const queryString = new URLSearchParams(data).toString();
-    const url = "https://gonzalo420.app.n8n.cloud/webhook/formulario-entrenamiento?" + queryString;
+    const url = "https://hook.us2.make.com/jnr62ougscwxr2af24cmqs073xyvd5cg?" + queryString;
 
     fetch(url, {
       method: "GET"
