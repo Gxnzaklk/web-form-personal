@@ -73,7 +73,7 @@
       };
 
       const queryString = new URLSearchParams(data).toString();
-      const url = "https://gonzalo420.app.n8n.cloud/webhook/formulario-base?" + queryString;
+    const url = "https://gonzalo420.app.n8n.cloud/webhook-test/formulario-base?" + queryString;
 
       fetch(url, { method: "GET" })
         .then(response => response.ok ? response.json() : Promise.reject("Error"))
