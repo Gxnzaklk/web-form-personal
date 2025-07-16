@@ -40,7 +40,7 @@
     <label for="compromiso">¿Qué tan comprometido/a estás con aprovechar esta oportunidad? *</label>
     <select id="compromiso" name="compromiso" required>
       <option value="">Elegí una opción</option>
-      <option>Estoy 100% enfocado/a. Si voy, voy con todo.</option>
+      <option>Estoy 100% enfocado/a. </option>
       <option>Me interesa, pero todavía estoy tanteando.</option>
       <option>No estoy seguro/a, solo quiero ver de qué se trata.</option>
     </select>
@@ -73,7 +73,7 @@
       };
 
       const queryString = new URLSearchParams(data).toString();
-    const url = "https://gonzalo420.app.n8n.cloud/webhook-test/formulario-base?" + queryString;
+      const url = "https://gonzalo420.app.n8n.cloud/webhook-test/formulario-base?" + queryString;
 
       fetch(url, { method: "GET" })
         .then(response => response.ok ? response.json() : Promise.reject("Error"))
