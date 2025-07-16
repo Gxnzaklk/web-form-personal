@@ -9,7 +9,7 @@
 <body>
   <form id="formFede">
     <h2>Entrenamiento 1 a 1 sin costo – Descubrí tu nivel y entrená con un coach real</h2>
-    <p>¿Querés mejorar tu cuerpo, rendimiento o salud? Esta primera clase gratuita te va a ayudar a evaluar dónde estás y hasta dónde podés ir. Vas a guiarte con una propuesta adaptada a tu nivel y objetivo. Solo completá tus datos y coordinamos el lugar.</p>
+    <p>¿Querés mejorar tu cuerpo, rendimiento o salud? Esta primera clase gratuita te ayudará a evaluar dónde estás y hacia dónde podés ir. Voy a guiarte con una propuesta adaptada a tu nivel y objetivo. Solo completá tus datos y coordiná tu lugar.</p>
 
     <label for="nombre">Nombre completo *</label>
     <input type="text" id="nombre" name="nombre" required />
@@ -20,13 +20,14 @@
     <label for="momento">¿En qué momento estás con tu entrenamiento o cuerpo? *</label>
     <select id="momento" name="momento" required>
       <option value="">Elegí el que más te represente</option>
-      <option>Quiero empezar de cero, pero con una guía seria.</option>
+      <option>Quiero empezar a entrenar desde cero, pero con una guía seria.</option>
       <option>Estoy volviendo después de un parate y necesito ordenarme.</option>
       <option>Ya vengo entrenando, pero no veo los resultados que busco.</option>
       <option>Entreno hace rato y quiero algo más personalizado o desafiante.</option>
     </select>
 
     <label for="turno">¿Qué turno preferís para tu clase gratuita? *</label>
+    <p class="info">Solo hay 5 lugares disponibles – reservá el tuyo antes que se agoten. Te vamos a confirmar por mensaje si tu lugar está disponible.</p>
     <select id="turno" name="turno" required>
       <option value="">Seleccioná un turno</option>
       <option>Lunes 16:00</option>
@@ -44,7 +45,7 @@
       <option>No estoy seguro/a, solo quiero ver de qué se trata.</option>
     </select>
 
-    <label>¿Tenés alguna lesión, molestia o condición física que debamos considerar?</label>
+    <label>¿Tenés alguna lesión, molestia o condición física que debamos considerar para tu clase?</label>
     <div class="radio-group">
       <label><input type="radio" name="lesion" value="Sí" /> Sí</label>
       <label><input type="radio" name="lesion" value="No" /> No</label>
@@ -53,7 +54,7 @@
     <label for="contacto">Contacto (WhatsApp o Instagram) *</label>
     <input type="text" id="contacto" name="contacto" required />
 
-    <button type="submit">Enviar</button>
+    <button type="submit">Agendar sesión</button>
   </form>
 
   <script>
@@ -72,7 +73,7 @@
       };
 
       const queryString = new URLSearchParams(data).toString();
-      const url = "https://hook.us2.make.com/jnr62ougscwxr2af24cmqs073xyvd5cg?" + queryString;
+      const url = "https://gonzalo420.app.n8n.cloud/webhook/formulario-base?" + queryString;
 
       fetch(url, { method: "GET" })
         .then(response => response.ok ? response.json() : Promise.reject("Error"))
