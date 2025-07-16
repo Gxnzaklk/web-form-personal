@@ -3,30 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Evaluación inicial personalizada | Fede Coach</title>
+  <title>Entrenamiento 1 a 1 sin costo | Fede Coach</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <form id="formFede">
-    <h2>Evaluación inicial personalizada sin costo</h2>
-    <p>Esta sesión es el primer paso para transformar tu cuerpo y bienestar. A través de una evaluación personalizada, Fede va a ayudarte a identificar tu punto de partida, entender tus objetivos y proponerte un plan adaptado a tu nivel y disponibilidad. Completá tus datos y coordinamos tu turno.</p>
+    <h2>Entrenamiento 1 a 1 sin costo – Descubrí tu nivel y entrená con un coach real</h2>
+    <p>¿Querés mejorar tu cuerpo, rendimiento o salud? Esta primera clase gratuita te va a ayudar a evaluar dónde estás y hasta dónde podés ir. Vas a guiarte con una propuesta adaptada a tu nivel y objetivo. Solo completá tus datos y coordinamos el lugar.</p>
 
     <label for="nombre">Nombre completo *</label>
     <input type="text" id="nombre" name="nombre" required />
 
-    <label for="edad">Edad</label>
-    <input type="number" id="edad" name="edad" min="10" max="99" />
+    <label for="edad">Edad *</label>
+    <input type="number" id="edad" name="edad" required min="10" max="99" />
 
-    <label for="objetivo">¿Cuál es tu objetivo principal? *</label>
-    <select id="objetivo" name="objetivo" required>
-      <option value="">Seleccioná una opción</option>
-      <option>Reducir grasa corporal</option>
-      <option>Aumentar masa muscular</option>
-      <option>Recomposición corporal</option>
-      <option>Mejorar salud, energía o bienestar general</option>
+    <label for="momento">¿En qué momento estás con tu entrenamiento o cuerpo? *</label>
+    <select id="momento" name="momento" required>
+      <option value="">Elegí el que más te represente</option>
+      <option>Quiero empezar de cero, pero con una guía seria.</option>
+      <option>Estoy volviendo después de un parate y necesito ordenarme.</option>
+      <option>Ya vengo entrenando, pero no veo los resultados que busco.</option>
+      <option>Entreno hace rato y quiero algo más personalizado o desafiante.</option>
     </select>
 
-    <label for="turno">Elegí tu día y horario preferido *</label>
+    <label for="turno">¿Qué turno preferís para tu clase gratuita? *</label>
     <select id="turno" name="turno" required>
       <option value="">Seleccioná un turno</option>
       <option>Lunes 16:00</option>
@@ -36,7 +36,15 @@
       <option>Miércoles 17:00</option>
     </select>
 
-    <label>¿Tenés alguna lesión, molestia o limitación física?</label>
+    <label for="compromiso">¿Qué tan comprometido/a estás con aprovechar esta oportunidad? *</label>
+    <select id="compromiso" name="compromiso" required>
+      <option value="">Elegí una opción</option>
+      <option>Estoy 100% enfocado/a. Si voy, voy con todo.</option>
+      <option>Me interesa, pero todavía estoy tanteando.</option>
+      <option>No estoy seguro/a, solo quiero ver de qué se trata.</option>
+    </select>
+
+    <label>¿Tenés alguna lesión, molestia o condición física que debamos considerar?</label>
     <div class="radio-group">
       <label><input type="radio" name="lesion" value="Sí" /> Sí</label>
       <label><input type="radio" name="lesion" value="No" /> No</label>
@@ -45,7 +53,7 @@
     <label for="contacto">Contacto (WhatsApp o Instagram) *</label>
     <input type="text" id="contacto" name="contacto" required />
 
-    <button type="submit">Agendar sesión</button>
+    <button type="submit">Enviar</button>
   </form>
 
   <script>
@@ -56,26 +64,24 @@
       const data = {
         nombre: form.nombre.value.trim(),
         edad: form.edad.value.trim(),
-        objetivo: form.objetivo.value,
+        momento: form.momento.value,
         turno: form.turno.value,
+        compromiso: form.compromiso.value,
         lesion: form.lesion?.value || "No especificado",
         contacto: form.contacto.value.trim()
       };
 
-      // 👉 Reemplazá por tu URL de webhook real en producción si cambia
       const queryString = new URLSearchParams(data).toString();
-      const url = "https://gonzalo420.app.n8n.cloud/webhook/formulario-entrenamiento?" + queryString;
+      const url = "https://hook.us2.make.com/jnr62ougscwxr2af24cmqs073xyvd5cg?" + queryString;
 
-      fetch(url, {
-        method: "GET"
-      })
-        .then(response => response.json())
+      fetch(url, { method: "GET" })
+        .then(response => response.ok ? response.json() : Promise.reject("Error"))
         .then(res => {
-          alert(res.mensaje || "¡Formulario enviado con éxito!");
+          alert(res.mensaje || "✅ ¡Formulario enviado con éxito!");
           form.reset();
         })
         .catch(error => {
-          alert("No se pudo enviar. Reintentá más tarde o escribile a Fede.");
+          alert("❌ No se pudo enviar. Reintentá más tarde o escribile a Fede.");
           console.error(error);
         });
     });
